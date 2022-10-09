@@ -1,0 +1,1 @@
+A simple blockchain in Go for learning purposes.
