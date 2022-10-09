@@ -24,10 +24,14 @@ func (b *Block) SetHash() {
 	b.Hash = hash[:]
 }
 
-func NewBlock(data string, prevBlockHash []byte) Block {
-	block := Block{time.Now().Unix(), []byte(data), prevBlockHash, []byte{}}
+func NewBlock(data string, prevBlockHash []byte) *Block {
+	block := &Block{time.Now().Unix(), []byte(data), prevBlockHash, []byte{}}
 	block.SetHash()
 	return block
+}
+
+func NewGenesisBlock() *Block {
+	return NewBlock("Block #0", []byte{})
 }
 
 func (b *Block) ToString() string {
